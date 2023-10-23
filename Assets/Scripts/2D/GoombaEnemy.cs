@@ -3,18 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class KoopaInitialTrigger : MonoBehaviour
+public class GoombaEnemy : MonoBehaviour
 {
     private bool isDead;
-    private Animator koopaAnim;
-    Rigidbody rb;
-    // Start is called before the first frame update
+    [SerializeField] AudioSource goombaDie;
     void Start()
     {
-        isDead = false;
-        koopaAnim = GetComponent<Animator>();
-        koopaAnim.SetBool("isTrampled", false);
-        rb = GetComponent<Rigidbody>();
+        goombaDie.Stop();
     }
 
     // Update is called once per frame
@@ -40,11 +35,14 @@ public class KoopaInitialTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
+            goombaDie.Play();
             isDead = true;
-            koopaAnim.SetBool("isTrampled", true);
-            Destroy(gameObject, 0.2f);
+            Vector3 newScale = new Vector3(0.7f, 0.2f, 0.7f);
+            transform.localScale = newScale;
+
+            Destroy(gameObject, 0.3f);
         }
     }
 }

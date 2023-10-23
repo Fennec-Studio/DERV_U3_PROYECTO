@@ -8,6 +8,9 @@ TagManager:
   - Void
   - Enemy
   - PlayerShoes
+  - Coin
+  - Delimiter
+  - IsSolid
   layers:
   - Default
   - TransparentFX

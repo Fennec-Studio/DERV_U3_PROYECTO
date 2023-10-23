@@ -18,7 +18,7 @@ public class DeleteEnemies : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if(!collision.gameObject.CompareTag("Floor"))
         {
             Destroy(collision.gameObject);
         }

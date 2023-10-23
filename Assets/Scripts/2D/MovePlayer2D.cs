@@ -54,6 +54,9 @@ public class MovePlayer2D : MonoBehaviour
 
         if (transform.position.y <= 8)
         {
+            int lifes = PlayerPrefs.GetInt("mLifes");
+            lifes = lifes - 1;
+            PlayerPrefs.SetInt("mLifes", lifes);
             SceneManager.LoadScene("Level1");
         }
     }
@@ -71,7 +74,7 @@ public class MovePlayer2D : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Enemy"))
+        if(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("IsSolid"))
         {
             isJumping = false;
             walkAnim.SetBool("IsJump", false);
