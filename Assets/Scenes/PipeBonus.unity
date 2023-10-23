@@ -4612,7 +4612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910ea48e3dd93e2469b7d4fb6d140894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 45
+  rotationSpeed: 60
   raycastDistance: 10
   raycastHeightOffset: 0.56
   dieSound: {fileID: 260287671}

@@ -21,7 +21,6 @@ public class Mushroomprizes : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Delimiter"))
         {
             Vector3 newScale = new Vector3(1.0f, 1.0f, 1.0f);
