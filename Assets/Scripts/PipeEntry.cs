@@ -33,6 +33,7 @@ public class PipeEntry : MonoBehaviour
                 playerCollider.enabled = false;
                 pipeEntrySound.Play();
                 StartCoroutine(GoToPipe());
+                PlayerPrefs.SetInt("mBonus", 1);
             }
         }
     }

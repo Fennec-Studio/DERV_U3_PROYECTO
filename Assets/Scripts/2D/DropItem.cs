@@ -36,6 +36,14 @@ public class DropItem : MonoBehaviour
                 {
                     prizeSound.Play();
                 }
+
+                if (prize.CompareTag("Coin"))
+                {
+                    Destroy(prize, 2.0f);
+                    int coinsCounter = PlayerPrefs.GetInt("mCoins");
+                    coinsCounter = coinsCounter + 1;
+                    PlayerPrefs.SetInt("mCoins", coinsCounter);
+                }
             }
         }
     }

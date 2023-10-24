@@ -29,6 +29,10 @@ public class KoopaInitialTrigger : MonoBehaviour
         {
             if (!isDead)
             {
+                int lifes = PlayerPrefs.GetInt("mLifes");
+                lifes = lifes - 1;
+                PlayerPrefs.SetInt("mLifes", lifes);
+
                 SceneManager.LoadScene("Level1");
             }
         }
@@ -40,6 +44,7 @@ public class KoopaInitialTrigger : MonoBehaviour
         {
             isDead = true;
             koopaAnim.SetBool("isTrampled", true);
+            Destroy(gameObject, 0.2f);
         }
     }
 }
