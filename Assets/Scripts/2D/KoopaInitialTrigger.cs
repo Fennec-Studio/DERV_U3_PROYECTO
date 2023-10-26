@@ -20,7 +20,10 @@ public class KoopaInitialTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y <= 8)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -30,10 +33,18 @@ public class KoopaInitialTrigger : MonoBehaviour
             if (!isDead)
             {
                 int lifes = PlayerPrefs.GetInt("mLifes");
-                lifes = lifes - 1;
-                PlayerPrefs.SetInt("mLifes", lifes);
+                int isGiant = PlayerPrefs.GetInt("mGiant");
+                if(isGiant == 0) {
+                    lifes = lifes - 1;
+                    PlayerPrefs.SetInt("mLifes", lifes);
+                    SceneManager.LoadScene("Level1");
+                } else {
+                    PlayerPrefs.SetInt("mGiant", 0);
+                    Vector3 newScale = new Vector3(0.5f, 0.5f, 0.5f);
+                    GameObject player = GameObject.Find("Mario");
 
-                SceneManager.LoadScene("Level1");
+                    player.transform.localScale = newScale;
+                }
             }
         }
     }

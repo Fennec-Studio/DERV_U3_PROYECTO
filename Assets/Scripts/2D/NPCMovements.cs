@@ -34,7 +34,7 @@ public class NPCMovements : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
 
-        transform.position = new Vector3(transform.position.x, transform.position.y, newZ);
         enemyAnims.SetBool("Walking", true);
+        transform.position = new Vector3(transform.position.x, transform.position.y, newZ);
     }
 }

@@ -45,12 +45,16 @@ public class PlayerController : MonoBehaviour
 
         if (characterController.isGrounded)
         {
+            Debug.Log("Está en el suelo");
             if (Input.GetButtonDown("Jump"))
             {
-                movimiento.y = jumpForce;
+                Debug.Log("Salto");
+                float currentGravity = Physics.gravity.y;
+                float jumpVelocity = Mathf.Sqrt(2 * jumpForce * Mathf.Abs(currentGravity));
+                movimiento.y = jumpVelocity;
             }
         }
-        movimiento.y -= 9.8f * Time.deltaTime * 5;
+
         characterController.Move(movimiento * Time.deltaTime);
     }
 }

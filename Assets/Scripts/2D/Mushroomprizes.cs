@@ -27,6 +27,7 @@ public class Mushroomprizes : MonoBehaviour
             Player.transform.localScale = newScale;
             collectedMushroom.Play();
             Destroy(gameObject);
+            PlayerPrefs.SetInt("mGiant", 1);
         }
     }
 }

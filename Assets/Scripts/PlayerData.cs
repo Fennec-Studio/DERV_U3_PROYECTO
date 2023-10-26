@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerData : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerData : MonoBehaviour
     public int mCoins = 0;
     public int mLevel = 0;
     public int mBonus = 0;
+    public int mGiant = 0;
 
     [SerializeField] TextMeshProUGUI lifeText;
     [SerializeField] TextMeshProUGUI coinText;
@@ -39,13 +41,15 @@ public class PlayerData : MonoBehaviour
             PlayerPrefs.SetInt("mCoins", 0);
             PlayerPrefs.SetInt("mLevel", 1);
             PlayerPrefs.SetInt("mBonus", 0);
+            PlayerPrefs.SetInt("mGiant", 0);
         }
         mLifes = PlayerPrefs.GetInt("mLifes");
         mCoins = PlayerPrefs.GetInt("mCoins");
         mLevel = PlayerPrefs.GetInt("mLevel");
         mBonus = PlayerPrefs.GetInt("mBonus");
+        mGiant = PlayerPrefs.GetInt("mGiant");
 
-        if(mBonus == 1)
+        if (mBonus == 1 && SceneManager.GetActiveScene().name != "PipeBonus")
         {
             GameObject player = GameObject.Find("Mario");
             GameObject bonusExit = GameObject.Find("BonusExit");

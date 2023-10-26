@@ -21,9 +21,10 @@ public class BreakBricks : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
             breakBrick.SetActive(true);
             breakBrickSound.Play();
+            Destroy(breakBrick, 0.2f);
         }
     }
 }
