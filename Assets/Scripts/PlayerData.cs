@@ -53,7 +53,7 @@ public class PlayerData : MonoBehaviour
         {
             GameObject player = GameObject.Find("Mario");
             GameObject bonusExit = GameObject.Find("BonusExit");
-            Vector3 posCamera = new Vector3(19.14f, 12.13f, 948.2928f);
+            Vector3 posCamera = new Vector3(19.14f, 12.13f, 1053f);
 
             player.transform.position = bonusExit.transform.position;
             GameObject.Find("MainCamera").transform.position = posCamera;
