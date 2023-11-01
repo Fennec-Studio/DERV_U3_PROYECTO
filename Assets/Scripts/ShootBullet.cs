@@ -6,7 +6,7 @@ public class ShootBullet : MonoBehaviour
 {
     [SerializeField] GameObject objProyectil;
     [SerializeField] GameObject ubiLanzamiento;
-    [SerializeField] int timeToDestroy;
+    [SerializeField] float timeToDestroy;
 
     float intervaloDeTiempo = 2.0f; // Intervalo de tiempo en segundos
     float tiempoPasado = 0.0f;
