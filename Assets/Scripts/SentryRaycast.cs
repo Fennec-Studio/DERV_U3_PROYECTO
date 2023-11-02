@@ -28,6 +28,11 @@ public class SentryRaycast : MonoBehaviour
         {
             if (hit.collider.CompareTag("Player"))
             {
+                int lifes = PlayerPrefs.GetInt("mLifes");
+                lifes = lifes - 1;
+                PlayerPrefs.SetInt("mLifes", lifes);
+                PlayerPrefs.SetInt("mBonus", 0);
+                SceneManager.LoadScene("Level1");
                 dieSound.Play();
                 SceneManager.LoadScene("Level1");
             }

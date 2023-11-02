@@ -26,10 +26,7 @@ public class PlayerData : MonoBehaviour
         coinText.text = PlayerPrefs.GetInt("mCoins").ToString("D3");
         if (mLifes <= 0)
         {
-            //Mostrar pantalla GameOver
-            mLifes = 3; //Borrar esto 
-            PlayerPrefs.SetInt("mLifes", mLifes);
-            PlayerPrefs.SetInt("mCoins", 0);
+            SceneManager.LoadScene("GameOver");
         }
     }
 
