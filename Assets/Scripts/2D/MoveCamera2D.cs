@@ -16,7 +16,7 @@ public class MoveCamera2D : MonoBehaviour
     {
         Vector3 posCamera = transform.position;
         posCamera.y = Jugador.position.y + incremento;
-        if(posCamera.y < 15f)
+        if(posCamera.y < 20f)
         {
             transform.position = posCamera;
         }
