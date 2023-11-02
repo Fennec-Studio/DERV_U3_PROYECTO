@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class StarMovement : MonoBehaviour
 {
     [SerializeField] float velocidad = 5.0f;
+    [SerializeField] AudioSource worldSound;
     private bool moviendoseHaciaAdelante = true;
     private Rigidbody body;
+
     void Start()
     {
         body = GetComponent<Rigidbody>();
@@ -32,9 +35,8 @@ public class StarMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Player")
+        if (!other.gameObject.CompareTag("Player"))
         {
-            //moviendoseHaciaAdelante = !moviendoseHaciaAdelante;
             body.AddForce(Vector3.up * 15, ForceMode.Impulse);
         }
     }

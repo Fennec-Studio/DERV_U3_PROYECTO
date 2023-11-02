@@ -57,5 +57,5 @@ public class PlayerData : MonoBehaviour
 
             PlayerPrefs.SetInt("mBonus", 0);
         }
-    }   
+    }
 }

@@ -80,4 +80,9 @@ public class MovePlayer2D : MonoBehaviour
             walkAnim.SetBool("IsJump", false);
         }
     }
+
+    public void updateSpeed(float nSpeed)
+    {
+        this.speed = nSpeed;
+    }
 }
