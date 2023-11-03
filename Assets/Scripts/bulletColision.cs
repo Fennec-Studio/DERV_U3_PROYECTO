@@ -19,8 +19,5 @@ public class bulletColision : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         GameObject obj = collision.gameObject;
-        //Destroy(obj);
-
-        //Destroy(gameObject);
     }
 }
