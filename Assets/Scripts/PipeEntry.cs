@@ -33,7 +33,6 @@ public class PipeEntry : MonoBehaviour
                 playerCollider.enabled = false;
                 pipeEntrySound.Play();
                 StartCoroutine(GoToPipe());
-                PlayerPrefs.SetInt("mBonus", 1);
             }
         }
     }
@@ -41,6 +40,7 @@ public class PipeEntry : MonoBehaviour
     private IEnumerator GoToPipe()
     {
         yield return new WaitForSeconds(0.4f);
+        PlayerPrefs.SetInt("mBonus", 1);
         SceneManager.LoadScene("PipeBonus");
     }
 

@@ -6,6 +6,7 @@ public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField] GameObject objectToSpawn; // El prefab del objeto a spawnear
     [SerializeField] int numberOfObjects = 10; // Cantidad de objetos a spawnear
+    [SerializeField] AudioSource coinSound;
 
     private Vector3 spawnCenter;
     private Vector3 planeSize;
@@ -16,6 +17,7 @@ public class ObjectSpawner : MonoBehaviour
         planeSize = planeRenderer.bounds.size;
         spawnCenter = transform.position;
         SpawnObjects();
+        coinSound.Stop();
     }
 
     void SpawnObjects()
@@ -31,7 +33,12 @@ public class ObjectSpawner : MonoBehaviour
             GameObject spawnedObject = Instantiate(objectToSpawn, randomPosition, Quaternion.identity);
             spawnedObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
+            BoxCollider boxCollider = spawnedObject.AddComponent<BoxCollider>();
+            boxCollider.size = new Vector3(0.7f, 0.7f, 0.7f);
+            
             spawnedObject.AddComponent<RotateCoin>();
+            spawnedObject.AddComponent<CoinBonusCollect>();
+            spawnedObject.GetComponent<CoinBonusCollect>().prueba = coinSound;
         }
     }
 }
