@@ -6,18 +6,15 @@ public class ShootBullet : MonoBehaviour
 {
     [SerializeField] GameObject objProyectil;
     [SerializeField] GameObject ubiLanzamiento;
-    [SerializeField] float timeToDestroy;
+    float timeToDestroy = 3.0f;
+    float intervaloDeTiempo = 0.0f;
 
-    float intervaloDeTiempo = 2.0f; // Intervalo de tiempo en segundos
     float tiempoPasado = 0.0f;
-
-    // Start is called before the first frame update
     void Start()
     {
-
+        intervaloDeTiempo = Random.Range(0.0f, 6.0f);
     }
 
-    // Update is called once per frame
     void Update()
     {
         tiempoPasado += Time.deltaTime;
@@ -29,6 +26,7 @@ public class ShootBullet : MonoBehaviour
 
             Destroy(obj, timeToDestroy);
 
+            intervaloDeTiempo = Random.Range(0.0f, 6.0f);
             tiempoPasado = 0.0f;
         }
     }
