@@ -6,22 +6,20 @@ public class BackgroundThemes : MonoBehaviour
 {
     [SerializeField] AudioSource intro;
     [SerializeField] AudioSource loopSong;
+    private bool introFinished = false;
+
     void Start()
     {
         loopSong.Stop();
-        StartCoroutine(PlayLoopSong());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private IEnumerator PlayLoopSong()
-    {
-        yield return new WaitForSeconds(21.9f);
-        loopSong.Play();
-        //intro.Stop();
+        if(!intro.isPlaying && !introFinished)
+        {
+            introFinished = true;
+            loopSong.Play();
+        }
     }
 }
