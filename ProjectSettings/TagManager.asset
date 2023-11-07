@@ -11,7 +11,7 @@ TagManager:
   - Coin
   - Delimiter
   - IsSolid
-  - Tunnel
+  - Canon
   layers:
   - Default
   - TransparentFX
