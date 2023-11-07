@@ -1,51 +1,67 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BossMarioMovement : MonoBehaviour
 {
     [SerializeField] float speed = 3.0f; // Velocidad de movimiento
-    [SerializeField] Vector3[] targetCoordinates; // Coordenadas a seguir
-
-    private int currentCoordinateIndex = 0;
-    private Vector3 currentTarget;
+    [SerializeField] float minX = 70.2f; // Valor mÃ­nimo de X
+    [SerializeField] float maxX = 159.4f; // Valor mÃ¡ximo de X
+    [SerializeField] TextMeshPro txtLifeBoss;
+    Animator enemyAnims;
+    private bool isDown = false;
+    private int lifeBoss = 100;
+    private int direction = -1;
 
     void Start()
     {
-        currentTarget = targetCoordinates[currentCoordinateIndex];
+        enemyAnims = GetComponent<Animator>();
+        isDown = false;
     }
 
+    // Update is called once per frame
     void Update()
     {
-        // Calcula la dirección hacia el siguiente conjunto de coordenadas.
-        Vector3 direction = (currentTarget - transform.position).normalized;
-
-        // Mueve el NPC hacia el siguiente conjunto de coordenadas.
-        transform.Translate(direction * speed * Time.deltaTime);
-
-        // Si el NPC está lo suficientemente cerca del conjunto de coordenadas actual, pasa al siguiente.
-        if (Vector3.Distance(transform.position, currentTarget) < 0.1f)
+        if (!isDown)
         {
-            currentCoordinateIndex++;
-            if (currentCoordinateIndex >= targetCoordinates.Length)
+            float currentX = transform.position.x;
+            float newX = currentX + (speed * direction * Time.deltaTime);
+
+            if (newX < minX)
             {
-                currentCoordinateIndex = 0; // Vuelve al inicio si has llegado al final de las coordenadas.
+                newX = minX;
+                direction = 1;
+                transform.rotation = Quaternion.Euler(0f, 90f, 0f);
             }
-            currentTarget = targetCoordinates[currentCoordinateIndex];
-            FlipSprite(currentTarget);
+            else if (newX > maxX)
+            {
+                newX = maxX;
+                direction = -1;
+                transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+            }
+
+            enemyAnims.SetBool("Walking", true);
+            transform.position = new Vector3(newX, transform.position.y, transform.position.z);
         }
     }
 
-    void FlipSprite(Vector3 newTarget)
+    private void OnTriggerEnter(Collider other)
     {
-        // Voltea el sprite según la dirección del nuevo objetivo.
-        if (newTarget.x < transform.position.x)
+        if (!isDown && other.gameObject.CompareTag("Canon"))
         {
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            isDown = true;
+            enemyAnims.SetBool("Hitting", true);
+            StartCoroutine(GiveUpBoss());
+            lifeBoss -= 10;
+            txtLifeBoss.text = "<color=\"red\">" + lifeBoss + "/100â™¥";
         }
-        else
-        {
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        }
+    }
+
+    private IEnumerator GiveUpBoss()
+    {
+        yield return new WaitForSeconds(3.0f);
+        enemyAnims.SetBool("Hitting", false);
+        isDown = false;
     }
 }
