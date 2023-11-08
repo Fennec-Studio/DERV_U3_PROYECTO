@@ -7,9 +7,11 @@ public class SentryRaycast : MonoBehaviour
     [SerializeField] float raycastDistance = 10.0f;
     [SerializeField] float raycastHeightOffset = 1.0f; // Ajuste de altura del rayo
     [SerializeField] AudioSource dieSound;
+    string nivel;
 
     void Start()
     {
+        nivel = SceneManager.GetActiveScene().name;
         dieSound.Stop();
     }
 
@@ -32,9 +34,9 @@ public class SentryRaycast : MonoBehaviour
                 lifes = lifes - 1;
                 PlayerPrefs.SetInt("mLifes", lifes);
                 PlayerPrefs.SetInt("mBonus", 0);
-                SceneManager.LoadScene("Level1");
+                SceneManager.LoadScene(nivel == "PipeBonus" ? "Level1" : nivel);
                 dieSound.Play();
-                SceneManager.LoadScene("Level1");
+                SceneManager.LoadScene(nivel == "PipeBonus" ? "Level1" : nivel);
             }
         }
     }

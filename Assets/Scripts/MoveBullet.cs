@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveBullet : MonoBehaviour
 {
@@ -28,23 +29,26 @@ public class MoveBullet : MonoBehaviour
         rb.velocity = movimiento;
     }
 
-    private void OnCollisionExit (Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Salio");
-        if (collision.collider == tunnelCollider)
+        if (!other.gameObject.CompareTag("Tunnel"))
         {
-            Destroy(gameObject);
+            int lifes = PlayerPrefs.GetInt("mLifes");
+            lifes = lifes - 1;
+            PlayerPrefs.SetInt("mLifes", lifes);
+            SceneManager.LoadScene("Level4");
+        }
+        if (other.gameObject.CompareTag("Delimite"))
+        {
+            SceneManager.LoadScene("FinalBoss");
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        Debug.Log("ENTRO");
+        int lifes = PlayerPrefs.GetInt("mLifes");
+        lifes = lifes - 1;
+        PlayerPrefs.SetInt("mLifes", lifes);
+        SceneManager.LoadScene("Level4");
     }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        Debug.Log("ESTA");
-    }
-
 }
