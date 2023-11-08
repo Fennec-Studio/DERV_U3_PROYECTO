@@ -18,7 +18,7 @@ public class PrizeCollect : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.SetActive(false);
+            Destroy(gameObject);
             SceneManager.LoadScene("Credits");
         }
     }

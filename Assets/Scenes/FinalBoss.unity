@@ -4193,6 +4193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bowser Jr
       objectReference: {fileID: 0}
+    - target: {fileID: 208134346028774355, guid: f8351daaaddafbb48a8c53ee2a0a3bb1, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3798831147409768896, guid: f8351daaaddafbb48a8c53ee2a0a3bb1, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -20227,7 +20231,7 @@ MonoBehaviour:
   starPrize: {fileID: 125118204}
   lowHit: {fileID: 1153518978}
   highHit: {fileID: 760544206}
-  bowserLaugh: {fileID: 0}
+  bowserLaugh: {fileID: 522228437}
 --- !u!135 &8749656197385345792
 SphereCollider:
   m_ObjectHideFlags: 0

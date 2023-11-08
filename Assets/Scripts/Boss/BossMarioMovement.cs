@@ -115,6 +115,7 @@ public class BossMarioMovement : MonoBehaviour
         StartCoroutine(DisableDieCamera());
         rbMario.isKinematic = true;
         bowserLaugh.Play();
+        Destroy(GameObject.Find("LAVA"));
     }
 
     private IEnumerator DisableDieCamera()
