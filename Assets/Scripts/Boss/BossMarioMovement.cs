@@ -14,6 +14,7 @@ public class BossMarioMovement : MonoBehaviour
     [SerializeField] GameObject starPrize;
     [SerializeField] AudioSource lowHit;
     [SerializeField] AudioSource highHit;
+    [SerializeField] AudioSource bowserLaugh;
     Animator enemyAnims;
     private bool isDown = false;
     private int lifeBoss = 100;
@@ -28,6 +29,7 @@ public class BossMarioMovement : MonoBehaviour
         bossDefeat = false;
         lowHit.Stop();
         highHit.Stop();
+        bowserLaugh.Stop();
         rbMario = GetComponent<Rigidbody>();
     }
 
@@ -112,6 +114,7 @@ public class BossMarioMovement : MonoBehaviour
         starPrize.SetActive(true);
         StartCoroutine(DisableDieCamera());
         rbMario.isKinematic = true;
+        bowserLaugh.Play();
     }
 
     private IEnumerator DisableDieCamera()
