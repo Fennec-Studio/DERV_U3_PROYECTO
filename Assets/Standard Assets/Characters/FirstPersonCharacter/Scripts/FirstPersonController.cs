@@ -170,36 +170,34 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             // pick & play a random footstep sound from the array,
             // excluding sound at index 0
-            int n = Random.Range(1, m_FootstepSounds.Length);
-            m_AudioSource.clip = m_FootstepSounds[n];
-            m_AudioSource.PlayOneShot(m_AudioSource.clip);
+            //int n = Random.Range(1, m_FootstepSounds.Length);
+            //m_AudioSource.clip = m_FootstepSounds[n];
+            //m_AudioSource.PlayOneShot(m_AudioSource.clip);
             // move picked sound to index 0 so it's not picked next time
-            m_FootstepSounds[n] = m_FootstepSounds[0];
-            m_FootstepSounds[0] = m_AudioSource.clip;
+            //m_FootstepSounds[n] = m_FootstepSounds[0];
+            //m_FootstepSounds[0] = m_AudioSource.clip;
         }
 
 
         private void UpdateCameraPosition(float speed)
         {
-            Vector3 newCameraPosition;
-            if (!m_UseHeadBob)
-            {
-                return;
-            }
-            if (m_CharacterController.velocity.magnitude > 0 && m_CharacterController.isGrounded)
-            {
-                m_Camera.transform.localPosition =
-                    m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
-                                      (speed*(m_IsWalking ? 1f : m_RunstepLenghten)));
-                newCameraPosition = m_Camera.transform.localPosition;
-                newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
-            }
-            else
-            {
-                newCameraPosition = m_Camera.transform.localPosition;
-                newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset();
-            }
-            m_Camera.transform.localPosition = newCameraPosition;
+            //Vector3 newCameraPosition;
+            //if (!m_UseHeadBob)
+            //{
+            //    return;
+            //}
+            //if (m_CharacterController.velocity.magnitude > 0 && m_CharacterController.isGrounded)
+            //{
+            //    m_Camera.transform.localPosition = m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude + (speed*(m_IsWalking ? 1f : m_RunstepLenghten)));
+            //    newCameraPosition = m_Camera.transform.localPosition;
+            //    newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
+            //}
+            //else
+            //{
+            //    newCameraPosition = m_Camera.transform.localPosition;
+            //    newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset();
+            //}
+            //m_Camera.transform.localPosition = newCameraPosition;
         }
 
 
