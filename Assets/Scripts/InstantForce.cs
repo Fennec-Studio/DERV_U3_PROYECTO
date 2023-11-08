@@ -5,11 +5,10 @@ using UnityEngine;
 public class InstantForce : MonoBehaviour
 {
     Rigidbody rb;
-    float fuerza;
+    [SerializeField] float fuerza = 50;
 
     void Start()
     {
-        fuerza = 50;
         rb = GetComponent<Rigidbody>();
     }
 

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
@@ -132,6 +133,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             UpdateCameraPosition(speed);
 
             m_MouseLook.UpdateCursorLock();
+
+            if (transform.position.y <= -7.0f)
+            {
+                int lifes = PlayerPrefs.GetInt("mLifes");
+                lifes = lifes - 1;
+                PlayerPrefs.SetInt("mLifes", lifes);
+                SceneManager.LoadScene("FinalBoss");
+            }
         }
 
 

@@ -5,6 +5,10 @@ using UnityEngine;
 public class LaunchCannon : MonoBehaviour
 {
     [SerializeField] GameObject canon;
+    [SerializeField] GameObject ball;
+    [SerializeField] GameObject launchBall;
+
+    private float timeToDestroy = 3.0f;
     private Animator switchAnim;
     private Animator canonAnim;
     private bool CanonUsed = false;
@@ -26,10 +30,16 @@ public class LaunchCannon : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                //Launch
+                GameObject obj = Instantiate(ball, launchBall.transform.position,
+                    launchBall.transform.rotation);
+                if(obj != null)
+                {
+                    Destroy(obj, timeToDestroy);
+                }
                 switchAnim.SetBool("Use", true);
                 canonAnim.SetBool("WaitHit", true);
                 StartCoroutine(ChangeCannonState());
+                CanonUsed = true;
             }
         }
     }
