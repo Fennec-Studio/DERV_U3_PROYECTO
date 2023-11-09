@@ -36,10 +36,12 @@ public class PlayerController : MonoBehaviour
         
         if (movimiento.magnitude > 0)
         {
+            if (characterAnims == null) return;
             characterAnims.SetBool("Walking", true);
         }
         else
         {
+            if (characterAnims == null) return;
             characterAnims.SetBool("Walking", false);
         }
 

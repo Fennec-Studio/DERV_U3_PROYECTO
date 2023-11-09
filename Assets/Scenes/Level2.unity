@@ -6672,7 +6672,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 30.529999, y: 43.401, z: 25.25}
-  m_LocalScale: {x: 5, y: 11.62, z: 0.2}
+  m_LocalScale: {x: 5.297, y: 11.62, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 18895363}
@@ -26254,12 +26254,24 @@ PrefabInstance:
       value: Mush Large (Green) (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1326
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1326
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1326
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21
       objectReference: {fileID: 0}
     - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.6000023
+      value: 0.25554657
       objectReference: {fileID: 0}
     - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33149,12 +33161,24 @@ PrefabInstance:
       value: Mush Large (Green) (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1414
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1414
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1414
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -40.899994
       objectReference: {fileID: 0}
     - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.400002
+      value: 9.01745
       objectReference: {fileID: 0}
     - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -41261,12 +41285,24 @@ PrefabInstance:
       value: Mush Large (Green)
       objectReference: {fileID: 0}
     - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0796
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0796
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0796
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -54.84
+      value: -59.25045
       objectReference: {fileID: 0}
     - target: {fileID: 5395709532901231427, guid: 28dd5a293d339224ab9d35575ce517bd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -66605,7 +66641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsWalking: 0
   m_WalkSpeed: 7.5
-  m_RunSpeed: 7.5
+  m_RunSpeed: 10
   m_RunstepLenghten: 0.7
   m_JumpSpeed: 15
   m_StickToGroundForce: 0

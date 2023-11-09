@@ -38,7 +38,7 @@ public class MoveBullet : MonoBehaviour
             PlayerPrefs.SetInt("mLifes", lifes);
             SceneManager.LoadScene("Level4");
         }
-        if (other.gameObject.CompareTag("Delimite"))
+        if (other.gameObject.CompareTag("Delimit"))
         {
             SceneManager.LoadScene("FinalBoss");
         }

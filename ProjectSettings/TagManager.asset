@@ -12,6 +12,8 @@ TagManager:
   - Delimiter
   - IsSolid
   - Canon
+  - Tunnel
+  - Delimit
   layers:
   - Default
   - TransparentFX
